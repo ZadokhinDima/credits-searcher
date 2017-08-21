@@ -3,14 +3,15 @@ package main.java.controller;
 import java.sql.SQLException;
 import java.util.List;
 
-import main.java.model.dbservice.InitServises;
+import main.java.model.dao.DataAccessObject;
+import main.java.model.dbservice.MySqlAccess;
 import main.java.model.entity.CreditType;
 
 public class StartPageLoader {
 
     public String creditTypesToHtmlSelect() throws SQLException {
-	InitServises servises = new InitServises();
-	return createOptionsFromList(servises.getCreditTypes());
+	DataAccessObject myDataAccessObject = new MySqlAccess();
+	return createOptionsFromList(myDataAccessObject.getTypes());
     }
 
     private String createOptionsFromList(List<CreditType> types) {

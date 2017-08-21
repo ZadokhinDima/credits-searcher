@@ -3,7 +3,8 @@ package main.java.controller;
 import java.sql.SQLException;
 import java.util.List;
 
-import main.java.model.dbservice.OffersSearcher;
+import main.java.model.dao.DataAccessObject;
+import main.java.model.dbservice.MySqlAccess;
 import main.java.model.entity.Credit;
 
 public class SearchController {
@@ -11,10 +12,10 @@ public class SearchController {
     private int type;
     private int prepayment, expansion;
 
-    OffersSearcher searcher;
+    private DataAccessObject myDataAccessObject;
 
     public SearchController(int type, int prepayment, int expansion) {
-	searcher = new OffersSearcher();
+	myDataAccessObject = new MySqlAccess();
 	this.type = type;
 	this.prepayment = prepayment;
 	this.expansion = expansion;
@@ -22,7 +23,7 @@ public class SearchController {
 
     public String addSearchResults() throws SQLException {
 	String result = "";
-	List<Credit> credits = searcher.search(type, prepayment, expansion);
+	List<Credit> credits = myDataAccessObject.searchCredits(type, prepayment, expansion);
 	if (credits.size() == 0) {
 	    return "<h3> Вибачте, не знайшлось жодного кредиту по вашому запиту </h3>";
 	}
