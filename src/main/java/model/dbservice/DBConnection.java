@@ -13,6 +13,7 @@ public class DBConnection {
     private DBConnection() {
 	try {
 	    DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
+	    System.out.println("Creating new instance!!!");
 	    connection = DriverManager.getConnection(Constants.DB_URL, Constants.DB_USER, Constants.DB_PASSWORD);
 	} catch (SQLException e) {
 	    System.err.println(e.getMessage());

@@ -10,4 +10,6 @@ public interface DataAccessObject {
     List<Credit> searchCredits(int type, int prepayment, int expansion);
 
     List<CreditType> getTypes();
+
+    void close();
 }

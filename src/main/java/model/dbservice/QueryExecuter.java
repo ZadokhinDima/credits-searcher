@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class QueryExecuter {
-    static ResultSet execute(String query) {
+    public static ResultSet execute(String query) {
 	try {
 	    Connection connection = DBConnection.getConnection();
 	    Statement statement = connection.createStatement();

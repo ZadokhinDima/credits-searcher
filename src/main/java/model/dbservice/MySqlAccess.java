@@ -46,4 +46,14 @@ public class MySqlAccess implements DataAccessObject {
 	return result;
     }
 
+    @Override
+    public void close() {
+	try {
+	    DBConnection.getConnection().close();
+	} catch (SQLException e) {
+	    // TODO Auto-generated catch block
+	    e.printStackTrace();
+	}
+    }
+
 }
