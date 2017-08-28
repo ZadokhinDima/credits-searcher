@@ -1,4 +1,4 @@
-package main.java.controller;
+package main.java.controller.listeners;
 
 import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpSessionEvent;
